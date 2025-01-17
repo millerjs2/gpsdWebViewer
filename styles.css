@@ -1,0 +1,307 @@
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f5f5f5;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 800px) {
+    .dashboard {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .metrics-card {
+        grid-column: 1 / -1;
+    }
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.fix-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+}
+
+.fix-table td {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.fix-table td:first-child {
+    color: #666;
+    font-weight: 500;
+    width: 40%;
+}
+
+.fix-table td:last-child {
+    font-family: monospace;
+    font-size: 1.1em;
+}
+
+.fix-status {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.fix-time {
+    color: #666;
+    font-family: monospace;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #eee;
+}
+
+.sky-plot .elevation-ring {
+    fill: none;
+    stroke: #eee;
+    stroke-width: 0.3;
+}
+
+.sky-plot .azimuth-line {
+    stroke: #eee;
+    stroke-width: 0.3;
+}
+
+.sky-plot .border {
+    fill: none;
+    stroke: #666;
+    stroke-width: 2;
+}
+
+.sky-plot .elevation-text {
+    text-anchor: middle;
+    font-family: monospace;
+    font-size: 6px;
+    fill: #999;
+    font-weight: normal;
+}
+
+.sky-plot .cardinal-text {
+    text-anchor: middle;
+    font-family: monospace;
+    font-size: 5px;
+    fill: #333;
+    font-weight: normal;
+}
+
+.metrics-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.metrics-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #333;
+}
+
+.metrics-table-title {
+    background: white;
+    border-bottom: 2px solid #333;
+    padding: 8px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.metrics-table td {
+    padding: 6px 8px;
+    border: 1px solid #333;
+    font-family: monospace;
+    font-size: 1.1em;
+}
+
+.metrics-table td:first-child {
+    font-weight: 500;
+    background: white;
+}
+
+.metrics-table td:last-child {
+    text-align: right;
+}
+
+.satellites-list {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.satellite-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 14px;
+}
+
+.satellite-table th {
+    background: #f5f5f5;
+    padding: 8px;
+    border-bottom: 2px solid #ddd;
+}
+
+.satellite-table td {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.satellite-table tr:hover {
+    background: #f8f8f8;
+}
+
+.satellite-table-notinuse {
+	background: #dc2626;
+}
+
+.table-header {
+    background: #f5f5f5;
+    padding: 8px;
+    border-bottom: 2px solid #ddd;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.error-message {
+    background: #fee2e2;
+    color: #dc2626;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.sky-plot-container {
+    display: flex;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    align-items: center;
+}
+
+.sky-plot {
+    aspect-ratio: 1;
+    width: 100%;
+    height: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    background: white;
+}
+
+.legend-container {
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    width: fit-content;
+    
+}
+
+.legend-title {
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.legend-subtitle {
+	margin-bottom: 10px;
+}
+
+.legend-section {
+    margin-bottom: 15px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.9em;
+}
+
+.legend-symbol {
+    width: 30px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.legend-symbol svg {
+    stroke-width: 0.5;
+}
+
+.legend-constellation-symbol {
+    fill: #888888;
+    stroke: #262626;
+    stroke-width: 0.5;
+}
+
+.legend-signal-used {
+    stroke-width: 0.5;
+}
+
+.legend-signal-unused {
+    fill: #efefef;
+    stroke: #000000;
+    stroke-width: 0.5;
+}
+
+/*
+.satellite-very-weak { 
+    stroke: #444444;
+    stroke-width: 1;
+}
+.satellite-weak { 
+    stroke: #444444;
+    stroke-width: 1;
+}
+.satellite-medium { 
+    stroke: #444444;
+    stroke-width: 1;
+}
+.satellite-strong { 
+    stroke: #444444;
+    stroke-width: 1;
+}
+*/
+.satellite-unused {
+    fill: #efefef;
+    stroke: #000000;
+    stroke-width: 0.5;
+}
+
+
+.satellite-used.satellite-very-weak { fill: #ef4444; stroke: #262626; stroke-width: 0.5; }
+.satellite-used.satellite-weak { fill: #f97316; stroke: #262626; stroke-width: 0.5; }
+.satellite-used.satellite-medium { fill: #22c55e; stroke: #262626; stroke-width: 0.5; }
+.satellite-used.satellite-strong { fill: #02ff00; stroke: #262626; stroke-width: 0.5; }
+
+.satellite-text {
+    fill: black;
+    font-size: 4px;
+    font-weight: 500;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
