@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Configuration
-WEB_DIR="/var/www/html/gpsdWebViewer"   # Adjust this path as needed
+WEB_DIR="/var/www/html"                 # Adjust this path as needed
 obfuscate_location="yes"                # Set to !yes for full precision. jq required for obfuscation. 
 
 # Capture TPV (Time-Position-Velocity) data
-gpspipe -w -n 15 | grep -m 1 '"class":"TPV"' > "${WEB_DIR}/gps-tpv.json.tmp"
+/usr/local/bin/gpspipe -w -n 15 | grep -m 1 '"class":"TPV"' > "${WEB_DIR}/gps-tpv.json.tmp"
 
 # If obfuscation is enabled, process the JSON
 if [ "$obfuscate_location" = "yes" ]; then
@@ -19,10 +19,12 @@ else
 fi
 
 # Capture SKY (Satellite) data
-gpspipe -w -n 15 | grep -m 1 '"class":"SKY"' > "${WEB_DIR}/gps-sky.json"
+/usr/local/bin/gpspipe -w -n 15 | grep -m 1 '"class":"SKY"' > "${WEB_DIR}/gps-sky.json"
 
 # Clean up temporary file if it exists
 rm -f "${WEB_DIR}/gps-tpv.json.tmp"
 
 # Set appropriate permissions
 chmod 644 "${WEB_DIR}/gps-tpv.json" "${WEB_DIR}/gps-sky.json"
+
+exit
