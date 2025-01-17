@@ -29,4 +29,13 @@ There are two components:
 - Set up a cron job to run the getter script automatically. (I like this [crontab generator](https://crontab-generator.org).)
 - Browse to your web endpoint and enjoy!
 
+### To-Do
+- [ ] Handle skyplot SV labels better
+- [ ] Configure the satellite list to handle lots of SVs better
+- [ ] Fix the centering for the skyplot and legend
+- [ ] Test with basic NMEA GNSS units to make sure I'm not assuming too much
+- [ ] Collapsable SV list
+- [ ] Cleanly pull in status information from `chrony`
+- [ ] Places to display `gpsprof` charts?
+
 [^1]: Location obfuscation is done in the info-getter script so that precise location information is never stored. When clients load `index.html`, they also load `gps-tpv.json` and `gps-sky.json`, so we edit this json the moment we pull it from gpsd.
